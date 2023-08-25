@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_iet/presentation/screens/login/login_container.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -24,6 +25,7 @@ class _LoginScreen extends StatelessWidget {
           fit: BoxFit.cover
         )
       ),
+      child: const LoginContainer(),
     );
   }
 }
