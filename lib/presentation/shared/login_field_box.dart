@@ -14,11 +14,11 @@ class LoginFielBox extends StatelessWidget {
 
     final outlineInputBorder = OutlineInputBorder(
       borderSide: const BorderSide( color: Colors.white),
-      borderRadius: BorderRadius.circular(40)
+      borderRadius: BorderRadius.circular(10) // Modificar los Bordes para hacerlos mas redondeado
     );
 
     final inputDecoration = InputDecoration(
-      hintStyle: TextStyle(color: Colors.white),
+      hintStyle: const TextStyle(color: Colors.white),
       enabledBorder: outlineInputBorder,
       focusedBorder: outlineInputBorder,
       fillColor: Colors.transparent,
@@ -28,7 +28,7 @@ class LoginFielBox extends StatelessWidget {
     return TextFormField(
       decoration: inputDecoration.copyWith(hintText: hintText),
       obscureText: hintText.toLowerCase() == 'contraseña', // Campo de contraseña oculto
-      style: TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.white),
     );
   }
 }
