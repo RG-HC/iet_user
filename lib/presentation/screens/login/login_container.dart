@@ -3,12 +3,26 @@ import 'package:proyecto_iet/presentation/shared/login_button.dart';
 import 'package:proyecto_iet/presentation/shared/login_detector.dart';
 import 'package:proyecto_iet/presentation/shared/login_field_box.dart';
 
-class LoginContainer extends StatelessWidget {
+class LoginContainer extends StatefulWidget {
   const LoginContainer({super.key});
+
+  @override
+  State<LoginContainer> createState() => _LoginContainerState();
+}
+
+class _LoginContainerState extends State<LoginContainer> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListView(
+      controller: _scrollController,
       children: <Widget>[
         Container(
           padding: const EdgeInsets.all(20),
@@ -24,13 +38,26 @@ class LoginContainer extends StatelessWidget {
               ),
               const SizedBox(height: 70),
 
-              const LoginFielBox(
-                hintText: 'Correo Eléctronico',),
+              LoginFielBox(
+                hintText: 'Correo Eléctronico',
+                onFocusChange: (hasFocus) {
+                  if (hasFocus) {
+                    _scrollToEnd();
+                  }
+                },
+              ),
 
               const SizedBox(height: 20),
 
-              const LoginFielBox(
-                  hintText: 'Contraseña'),
+              LoginFielBox(
+                hintText: 'Contraseña',
+                onFocusChange: (hasFocus) {
+                  if (hasFocus) {
+                    _scrollToEnd();
+                  }
+                },
+              ),
+
 
               const SizedBox(height: 20,),
 
@@ -55,4 +82,13 @@ class LoginContainer extends StatelessWidget {
       ]
     );
   }
+
+  void _scrollToEnd() {
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
 }

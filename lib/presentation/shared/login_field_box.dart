@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 class LoginFielBox extends StatelessWidget {
 
   final String hintText;
+  final ValueChanged<bool> onFocusChange;
 
   const LoginFielBox({
     super.key,
-    required this.hintText
+    required this.hintText, required this.onFocusChange
   });
 
   @override
@@ -25,10 +26,17 @@ class LoginFielBox extends StatelessWidget {
       filled: true
     );
 
-    return TextFormField(
-      decoration: inputDecoration.copyWith(hintText: hintText),
-      obscureText: hintText.toLowerCase() == 'contraseña', // Campo de contraseña oculto
-      style: const TextStyle(color: Colors.white),
+    return FocusScope(
+      child: Focus(
+        onFocusChange: (hasFocus) {
+        onFocusChange(hasFocus);
+      },
+      child: TextFormField(
+        decoration: inputDecoration.copyWith(hintText: hintText),
+        obscureText: hintText.toLowerCase() == 'contraseña', // Campo de contraseña oculto
+        style: const TextStyle(color: Colors.white),
+      ),
+      )
     );
   }
 }
