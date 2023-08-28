@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto_iet/presentation/shared/login_button.dart';
-import 'package:proyecto_iet/presentation/shared/login_detector.dart';
-import 'package:proyecto_iet/presentation/shared/login_field_box.dart';
+import '../../shared/login_button.dart';
+import '../../shared/login_detector.dart';
+import '../../shared/login_field_box.dart';
+
 
 class LoginContainer extends StatefulWidget {
   const LoginContainer({super.key});

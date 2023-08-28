@@ -1,5 +1,6 @@
+import 'package:Taxi_Campeche_User/presentation/screens/login/login_screen.dart';
+import 'package:Taxi_Campeche_User/presentation/screens/splash_page/splash_page_screen.dart';
 import 'package:flutter/material.dart';
-import 'presentation/screens/screens.dart';
 
 void main() {
   runApp(const MainApp());
